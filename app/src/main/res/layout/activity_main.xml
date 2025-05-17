@@ -209,6 +209,7 @@
                     android:background="@drawable/text_button_nocho"
                     android:clickable="true"
                     android:focusable="true"
+                    android:onClick="openEdit"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -261,6 +262,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/lab"
+        android:visibility="gone"
         >
         <LinearLayout
             android:layout_width="240dp"
@@ -309,5 +311,192 @@
             android:focusable="true"
             android:onClick="offLab"
             />
+    </LinearLayout>
+
+    <!-- 添加菜单 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/edit_menu"
+        android:visibility="gone"
+        >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/wel_text"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="offEdit"
+            />
+        <!-- 设置菜单 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:padding="10dp"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/edit_title"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:text="@string/llm_title"
+                    />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:inputType="text"
+                    android:layout_weight="1"
+                    android:id="@+id/llm_title"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:text="@string/llm_api"
+                    />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:inputType="text"
+                    android:layout_weight="1"
+                    android:id="@+id/llm_api"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:text="@string/llm_key"
+                    />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:inputType="text"
+                    android:layout_weight="1"
+                    android:id="@+id/llm_key"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:text="@string/llm_model"
+                    />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:inputType="text"
+                    android:layout_weight="1"
+                    android:id="@+id/llm_model"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:text="@string/llm_tem"
+                    android:layout_marginTop="12dp"
+                    />
+                <SeekBar
+                    android:id="@+id/llm_tem_s"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:max="20"
+                    android:layout_weight="1"
+                    />
+                <EditText
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:inputType="text"
+                    android:id="@+id/llm_tem_input"
+                    android:paddingStart="2dp"
+                    android:paddingEnd="2dp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/llm_end"
+                    android:textColor="@color/white"
+                    android:background="@drawable/llm_enter"
+                    android:textSize="20sp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:onClick="saveEdit"
+                    />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </androidx.drawerlayout.widget.DrawerLayout>

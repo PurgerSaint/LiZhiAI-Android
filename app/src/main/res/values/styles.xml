@@ -3,4 +3,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- 隐藏 ActionBar -->
     </style>
+    <style name="Widget.MyApp.Tooltip" parent="Widget.MaterialComponents.Tooltip">
+        <!-- 自定义样式 -->
+    </style>
 </resources>
