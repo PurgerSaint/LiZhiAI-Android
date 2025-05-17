@@ -11,4 +11,6 @@
     <string name="wel_que_1">情歌听多了会降低恋爱免疫力吗?</string>
     <string name="wel_que_2">给AI看10万部电影，它能写出奥斯卡剧本吗?</string>
     <string name="wel_que_3">为什么有些人天生就能"逢凶化吉"?</string>
+    <string name="def_user">未登录</string>
+    <string name="edit_know">编辑知识库</string>
 </resources>
