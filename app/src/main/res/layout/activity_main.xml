@@ -4,12 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/white"
+    >
+    <!-- 顶部 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:gravity="center"
+        android:id="@+id/main_top"
         >
         <ImageButton
             android:id="@+id/lab"
@@ -29,7 +33,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="新对话"
+            android:text="@string/new_chat"
             android:textColor="@color/black"
             android:textSize="18sp"
             />
@@ -46,15 +50,201 @@
             />
     </LinearLayout>
 
+    <!-- 欢迎语 -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/main_top"
+        app:layout_constraintBottom_toTopOf="@id/main_text"
+        android:gravity="top|start"
+        android:orientation="vertical"
+        android:padding="20dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:layout_marginTop="50dp"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/lizhi_logo"
+                android:contentDescription="@string/img_des"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/lizhi_title"
+                android:layout_marginStart="10dp"
+                />
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wel_text"
+            android:textColor="@color/wel_text"
+            android:textSize="28sp"
+            android:layout_gravity="start"
+            android:layout_marginTop="5dp"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wel_que"
+            android:textColor="@color/wel_text"
+            android:textSize="16sp"
+            android:layout_gravity="start"
+            android:layout_marginTop="5dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/wel_que_button"
+            android:text="@string/wel_que_1"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:focusable="true"
+            android:clickable="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/wel_que_button"
+            android:text="@string/wel_que_2"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:focusable="true"
+            android:clickable="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/wel_que_button"
+            android:text="@string/wel_que_3"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:focusable="true"
+            android:clickable="true"
+            />
+    </LinearLayout>
+
+    <!-- 文本栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="120dp"
+        android:maxHeight="140dp"
         android:background="@drawable/input_text_border"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="10dp"
+        android:padding="15dp"
+        android:orientation="vertical"
+        android:id="@+id/main_text"
         >
-
+        <EditText
+            android:id="@+id/chat_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/wel_chat"
+            android:textColorHint="@color/text_color_no"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:inputType="textMultiLine"
+            android:background="@android:color/transparent"
+            android:layout_weight="1"
+            android:layout_marginBottom="5dp"
+            android:maxLines="4"
+            android:singleLine="false"
+            android:gravity="top|left"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35sp"
+                android:text="@string/fir_model"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:maxEms="10"
+                android:drawableRight="@drawable/text_list"
+                android:drawablePadding="3dp"
+                android:background="@drawable/text_button_nocho"
+                android:clickable="true"
+                android:focusable="true"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35sp"
+                android:text="@string/text_search"
+                android:textColor="@color/no_cho"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:padding="5dp"
+                android:layout_marginStart="5dp"
+                android:drawableLeft="@drawable/text_internet"
+                android:drawablePadding="3dp"
+                android:background="@drawable/text_button_nocho"
+                android:clickable="true"
+                android:focusable="true"
+                />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <ImageButton
+                android:layout_width="35sp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/text_upfile"
+                android:background="@drawable/text_button"
+                />
+            <ImageButton
+                android:layout_width="35sp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/text_sound"
+                android:background="@drawable/text_button"
+                />
+            <ImageButton
+                android:layout_width="35sp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/text_enter"
+                android:background="@drawable/text_button_enter"
+                />
+        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

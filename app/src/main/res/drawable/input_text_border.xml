@@ -3,7 +3,7 @@
     android:shape="rectangle">
     <!-- 边框颜色和宽度 -->
     <stroke
-        android:width="2dp"
+        android:width="3dp"
         android:color="#000000" /> <!-- 黑色边框 -->
     <!-- 圆角半径 -->
     <corners android:radius="8dp" /> <!-- 圆角大小 -->

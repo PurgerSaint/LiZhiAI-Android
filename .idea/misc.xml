@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Desktop/Kindle/LiZhiAI/app/src/main/res/drawable/input_text_border.xml" value="0.2025" />
+        <entry key="..\:/Desktop/Kindle/LiZhiAI/app/src/main/res/drawable/text_button_enter.xml" value="0.155" />
         <entry key="..\:/Desktop/Kindle/LiZhiAI/app/src/main/res/layout/activity_main.xml" value="0.33" />
       </map>
     </option>

@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">LiZhiAI</string>
     <string name="img_des">ONLYFORTEST</string>
+    <string name="new_chat">新对话</string>
+    <string name="wel_chat">有问必答绝不拖延，包你满意</string>
+    <string name="text_search">搜索</string>
+    <string name="fir_model">DeepSeek-V3</string>
+    <string name="title">LiZhi AI</string>
+    <string name="wel_text">更多可能，从这开始</string>
+    <string name="wel_que">从以下问题开始？</string>
+    <string name="wel_que_1">情歌听多了会降低恋爱免疫力吗?</string>
+    <string name="wel_que_2">给AI看10万部电影，它能写出奥斯卡剧本吗?</string>
+    <string name="wel_que_3">为什么有些人天生就能"逢凶化吉"?</string>
 </resources>
