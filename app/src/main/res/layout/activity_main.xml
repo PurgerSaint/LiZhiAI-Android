@@ -5,14 +5,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:padding="10dp"
+        android:gravity="center"
+        >
+        <ImageButton
+            android:id="@+id/lab"
+            android:layout_width="24sp"
+            android:layout_height="24sp"
+            android:src="@drawable/main_lab"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/img_des"
+            android:layout_marginEnd="10dp"
+            />
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="新对话"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            />
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+        <ImageButton
+            android:layout_width="28sp"
+            android:layout_height="28sp"
+            android:src="@drawable/main_newchat"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/img_des"
+            />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/input_text_border"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp"
+        >
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
