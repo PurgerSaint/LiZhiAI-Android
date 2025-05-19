@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/beijing">
+
+    <!-- 顶部导航栏 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="4dp"
+        android:background="@color/teal_200"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_order"
+            style="@style/tvNavigationBarStyle"
+            android:text="点菜"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/tv_discuss"
+            style="@style/tvNavigationBarStyle"
+            android:layout_toRightOf="@id/tv_order"
+            android:text="评价"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_business"
+            style="@style/tvNavigationBarStyle"
+            android:layout_toRightOf="@id/tv_discuss"
+            android:text="商家"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/friend_list"
+            android:gravity="center"
+            android:text="好友拼单" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_recommend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="推荐菜品"
+            android:textSize="16sp"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/tv_must_buy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="必买菜品"
+            android:textSize="16sp"
+            android:padding="8dp"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/right"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_selected_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:text="已选 0 件，合计：$0.00" />
+
+        <!-- 结账按钮 -->
+        <Button
+            android:id="@+id/btn_checkout"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="结账"
+            android:backgroundTint="@color/teal_200"
+            android:textColor="@android:color/white"
+            android:paddingHorizontal="24dp"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+
+</LinearLayout>
