@@ -4,7 +4,7 @@ package com.example.myapp;
 import java.io.Serializable;
 
 //测试 20250519193559
-
+// 111111
 public class FoodBean implements Serializable {
     private String name;
     private String price;
