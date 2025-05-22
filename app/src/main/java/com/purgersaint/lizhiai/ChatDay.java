@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 //每次
 class chat{
-    llm model;          //使用的模型
+    LLM model;          //使用的模型
     String userText;    //用户发送的文字
     String modelText;   //模型回答的结果
 
-    public chat(llm m,String u,String mt){
+    public chat(LLM m,String u,String mt){
         this.model = m;
         this.userText = u;
         this.modelText = mt;

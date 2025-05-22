@@ -14,6 +14,7 @@
     <string name="def_user">未登录</string>
     <string name="edit_know">编辑知识库</string>
     <string name="edit_title">编辑当前模型</string>
+    <string name="model_title">模型菜单</string>
     <string name="llm_title">名称:</string>
     <string name="llm_api">API域名:</string>
     <string name="llm_key">API密钥:</string>

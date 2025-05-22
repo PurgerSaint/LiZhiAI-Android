@@ -209,7 +209,7 @@
                     android:background="@drawable/text_button_nocho"
                     android:clickable="true"
                     android:focusable="true"
-                    android:onClick="openEdit"
+                    android:id="@+id/model_open"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -310,6 +310,73 @@
             android:clickable="true"
             android:focusable="true"
             android:onClick="offLab"
+            />
+    </LinearLayout>
+
+    <!-- 模型菜单 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/model_menu"
+        android:visibility="gone"
+        >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/wel_text"
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/model_other"
+            />
+        <!-- 模型菜单 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/model_title"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/model_title"
+                android:textSize="16sp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black"
+                android:gravity="bottom"
+                android:id="@+id/model_size"
+                android:layout_marginBottom="3dp"
+                />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                />
+            <ImageButton
+                android:layout_width="35sp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/text_upfile"
+                android:background="@android:color/transparent"
+                android:id="@+id/model_add"
+                />
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/model_list"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@color/white"
+            android:paddingBottom="10dp"
             />
     </LinearLayout>
 
@@ -494,7 +561,7 @@
                     android:paddingEnd="20dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:onClick="saveEdit"
+                    android:id="@+id/model_enter"
                     />
             </LinearLayout>
         </LinearLayout>
