@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<ChatDay> All; //聊天内容
     RecyclerView chatDay;           //侧边栏
     private LLMData model;          //模型数据
+    private ChatService chatService;    //模型服务
 
     //初始化侧边栏
     private void setLab(){
@@ -289,5 +290,42 @@ public class MainActivity extends AppCompatActivity {
         All.get(2).day.add(new chatEach("桂豪的性情分析"));
         All.get(1).day.add(new chatEach("宝宝和彬彬的异同性"));
 
+        TextView modelRes = findViewById(R.id.model_res);
+        EditText chatEdit = findViewById(R.id.chat_text);
+        ImageButton chatEnter = findViewById(R.id.chat_enter);
+        chatService = new ChatService();
+        chatEnter.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                String userText = chatEdit.getText().toString().trim();
+                if(model.user == null){
+                    modelRes.setText("请先选择或添加一个模型");
+                    Log.e("MainActivity", "用户模型设置缺失");
+                    return;
+                }
+                if(userText.isEmpty()){
+                    modelRes.setText("请输入问题");
+                    Log.e("MainActivity", "用户未输入内容");
+                    return;
+                }
+
+                modelRes.setText("正在请求...");
+
+                chatService.getBackRes(model.user, userText, new ChatService.ChatCallBack() {
+                    @Override
+                    public void backRes(String modelMsg) {
+                        modelRes.setText(modelMsg);
+                        Log.i("MainActivity", "Model Response: " + modelMsg);
+                        chatEdit.setText("");
+                    }
+
+                    @Override
+                    public void backErr(String errorMsg) {
+                        modelRes.setText(errorMsg);
+                        Log.e("MainActivity", "API Error: " + errorMsg);
+                    }
+                });
+            }
+        });
     }
 }

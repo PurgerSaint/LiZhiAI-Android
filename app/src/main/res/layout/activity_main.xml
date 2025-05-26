@@ -156,6 +156,16 @@
                 android:focusable="true"
                 android:clickable="true"
                 />
+            <TextView
+                android:id="@+id/model_res"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wel_que"
+                android:textColor="@color/wel_text"
+                android:textSize="16sp"
+                android:layout_gravity="start"
+                android:layout_marginTop="5dp"
+                />
         </LinearLayout>
 
         <!-- 文本栏 -->
@@ -252,6 +262,7 @@
                     android:layout_marginStart="5dp"
                     android:src="@drawable/text_enter"
                     android:background="@drawable/text_button_enter"
+                    android:id="@+id/chat_enter"
                     />
             </LinearLayout>
         </LinearLayout>
