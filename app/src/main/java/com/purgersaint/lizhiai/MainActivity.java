@@ -248,6 +248,7 @@ public class MainActivity extends AppCompatActivity {
         //12345678910
         TextView modelOpen = findViewById(R.id.model_open);
 
+        //初始化模型
         model = new LLMData(getApplicationContext(), () -> {
             if (model.LLMlist.isEmpty()) {
                 model.add(new LLM("1", "1", "1", "1", 1.2),()->{

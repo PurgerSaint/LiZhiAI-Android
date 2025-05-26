@@ -27,7 +27,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 //大模型类
-@Entity
+@Entity(tableName = "llms")
 public class LLM{
 
     @PrimaryKey(autoGenerate = true)
