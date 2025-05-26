@@ -1,5 +1,7 @@
 package com.purgersaint.lizhiai;
 
+import static android.content.ContentValues.TAG;
+
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
@@ -9,14 +11,22 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import okio.Buffer;
+import okio.BufferedSource;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -44,6 +54,40 @@ class Message{
     }
 }
 
+class SimpleLoggingInterceptor implements Interceptor {
+    @NotNull
+    @Override
+    public okhttp3.Response intercept(@NotNull Chain chain) throws IOException {
+        Request request = chain.request();
+        Log.d(TAG, "Sending request to " + request.url());
+        // Log.d(TAG, "Request Headers: " + request.headers()); // 小心敏感信息
+
+        // 尝试打印请求体 (如果存在且可读)
+        RequestBody body = request.body();
+        if (body != null) {
+            Buffer buffer = new Buffer();
+            body.writeTo(buffer);
+            Log.d(TAG, "Request Body: " + buffer.readUtf8());
+        }
+
+
+        okhttp3.Response response = chain.proceed(request);
+        Log.d(TAG, "Received response for " + response.request().url());
+        Log.d(TAG, "Response Code: " + response.code());
+        // Log.d(TAG, "Response Headers: " + response.headers());
+
+        // 尝试打印响应体 (需要克隆，因为响应体只能读取一次)
+        ResponseBody responseBody = response.body();
+        if (responseBody != null) {
+            BufferedSource source = responseBody.source();
+            source.request(Long.MAX_VALUE); // Buffer the entire body.
+            Buffer buffer = source.buffer();
+            Log.d(TAG, "Response Body: " + buffer.clone().readString(Charset.forName("UTF-8")));
+        }
+
+        return response;
+    }
+}
 
 interface ApiService{
     @POST
@@ -64,6 +108,7 @@ public class ChatService {
     public ChatService(){
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .addInterceptor(new SimpleLoggingInterceptor())
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30,TimeUnit.SECONDS)
                 .readTimeout(60,TimeUnit.SECONDS)
